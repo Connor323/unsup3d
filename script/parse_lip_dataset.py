@@ -79,11 +79,13 @@ def crop_images(image_files, anno_files):
         image_name = osp.splitext(osp.basename(image_file))[0]
         labels = np.unique(anno)
         for label in labels:
-            ys, xs = np.where(anno != label)
+            if not label: continue # not 0
+            ys, xs = np.where(anno == label)
             if not len(xs) or not len(ys): continue
             bbox = [xs.min(), ys.min(), xs.max(), ys.max()] # [left, top, right, bottom]
             patch_image = image[bbox[1]:bbox[3], bbox[0]:bbox[2]]
             patch_anno = anno[bbox[1]:bbox[3], bbox[0]:bbox[2]] == label
+            if not patch_anno.size: continue
             crop_images.append([patch_image, image_name, label])
             crop_annos.append([patch_anno, image_name, label])
     return crop_images, crop_annos
