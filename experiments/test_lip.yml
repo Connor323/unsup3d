@@ -10,7 +10,7 @@ test_result_dir: results/lip/test_results_checkpoint030
 num_workers: 4
 image_size: 64
 load_gt_depth: false
-test_data_dir: /pub1/hao66/dataset/lip_dataset_cropped/test
+test_data_dir: /pub1/hao66/dataset/lip_dataset_cropped/test/images
 
 ## model
 model_name: unsup3d_lip
