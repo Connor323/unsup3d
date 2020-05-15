@@ -1,14 +1,14 @@
 ## train lip
 ## trainer
 run_train: true
-num_epochs: 30
+num_epochs: 100
 batch_size: 64
-checkpoint_dir: results/lip
+checkpoint_dir: results/lip_crop
 save_checkpoint_freq: 1
 keep_num_checkpoint: 2
 resume: true
 use_logger: true
-log_freq: 500
+log_freq: 50
 
 ## dataloader
 num_workers: 4
@@ -17,7 +17,7 @@ load_gt_depth: false
 train_val_data_dir: /pub1/hao66/dataset/lip_dataset_cropped/images
 
 ## model
-model_name: unsup3d_lip
+model_name: unsup3d_lip_crop
 min_depth: 0.9
 max_depth: 1.1
 xyz_rotation_range: 60  # (-r,r) in degrees
